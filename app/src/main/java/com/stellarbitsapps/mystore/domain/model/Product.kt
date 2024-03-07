@@ -1,8 +1,15 @@
 package com.stellarbitsapps.mystore.domain.model
 
+import android.os.Parcelable
+import com.google.firebase.firestore.PropertyName
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product(
-    val id: Int,
+    val id: String = "",
     val description: String = "",
     val price: Double = 0.0,
-    val imageUrl: String = ""
-)
+    @get:PropertyName("image_url")
+    @set:PropertyName("image_url")
+    var imageUrl: String = ""
+) : Parcelable
