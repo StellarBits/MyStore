@@ -2,7 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MyStore" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimary">@color/primary_light</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorTertiary">@color/tertiary</item>
     </style>
 
     <style name="Theme.MyStore" parent="Base.Theme.MyStore" />
