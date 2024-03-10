@@ -1,5 +1,6 @@
 package com.stellarbitsapps.mystore.ui.addproduct
 
+import android.app.Dialog
 import android.net.Uri
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -7,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.stellarbitsapps.mystore.R
 import com.stellarbitsapps.mystore.databinding.FragmentAddProductBinding
 import com.stellarbitsapps.mystore.util.CurrencyTextWatcher
 
@@ -40,6 +44,19 @@ class AddProductFragment : BottomSheetDialogFragment() {
         setListeners()
     }
 
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
+        dialog.setContentView(R.layout.fragment_add_product)
+
+        dialog.behavior.peekHeight = resources.displayMetrics.heightPixels
+        dialog.behavior.apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+            skipCollapsed = true
+        }
+
+        return dialog
+    }
+
     private fun setListeners() {
         binding.imageProduct.setOnClickListener {
             chooseImage()
@@ -50,8 +67,20 @@ class AddProductFragment : BottomSheetDialogFragment() {
             val price = binding.editTextInputPrice.text.toString()
         }
 
+        binding.editTextInputDescription.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                binding.textViewDescriptionTitle.visibility =
+                    if (hasFocus) View.VISIBLE else View.INVISIBLE
+            }
+        }
+
         binding.editTextInputPrice.run {
             addTextChangedListener(CurrencyTextWatcher(this))
+
+            setOnFocusChangeListener { _, hasFocus ->
+                binding.textViewValueTitle.visibility =
+                    if (hasFocus) View.VISIBLE else View.INVISIBLE
+            }
         }
     }
 

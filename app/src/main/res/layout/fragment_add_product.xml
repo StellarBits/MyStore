@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="?attr/colorPrimaryDark"
     tools:context=".ui.addproduct.AddProductFragment">
 
@@ -22,36 +22,84 @@
         android:id="@+id/buttonAddProduct"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="120dp"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/secondary"
         android:text="CADASTRAR"
         android:textColor="@color/white"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInputPrice" />
 
     <EditText
         android:id="@+id/editTextInputDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_rounded_background_selector"
         android:ems="10"
+        android:hint="Descrição"
+        android:importantForAutofill="no"
         android:inputType="text"
-        android:text="Name"
-        android:textColor="@color/tertiary"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/tertiary"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/imageProduct"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@color/primary_dark"
+        android:paddingHorizontal="10dp"
+        android:text="Descrição"
+        android:textColor="@color/tertiary"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInputDescription"
+        app:layout_constraintStart_toStartOf="@+id/editTextInputDescription"
+        app:layout_constraintTop_toTopOf="@+id/editTextInputDescription" />
 
     <EditText
         android:id="@+id/editTextInputPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_rounded_background_selector"
         android:ems="10"
+        android:hint="R$ 0,00"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:textColor="@color/tertiary"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/tertiary"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextInputDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextInputDescription"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/textViewValueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@color/primary_dark"
+        android:paddingHorizontal="10dp"
+        android:text="Valor"
+        android:textColor="@color/tertiary"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInputPrice"
+        app:layout_constraintStart_toStartOf="@+id/editTextInputPrice"
+        app:layout_constraintTop_toTopOf="@+id/editTextInputPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
